@@ -1,20 +1,18 @@
 {
-  "name": "SimpleOrder",
+  "name": "BestWeather",
   "version": "0.1.0",
-  "description": "Simple Order task",
+  "description": "Brief exercise",
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack"
   },
   "dependencies": {
     "angular": "^1.5.5",
-    "angular-animate": "^1.5.5",
-    "angular-ui-bootstrap": "^1.3.2",
-    "angular-ui-router": "^0.2.18",
+    "angular-promise-tracker": "^2.1.0",
+    "angular-route": "^1.5.5",
     "bootstrap-sass": "^3.3.6",
-    "jquery": "^2.1.4",
     "lodash": "~4.5.0",
-    "oclazyload": "^1.0.9"
+    "moment": "^2.13.0"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.2.0",

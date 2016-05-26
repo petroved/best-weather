@@ -109,14 +109,10 @@ module.exports = {
   },
 
   // post css
-  postcss: [autoprefixer({ browsers: ['last 5 versions'] })],
+  postcss: [autoprefixer({ browsers: ['last 3 versions'] })],
 
   // load plugins
   plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
-    }),
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.AggressiveMergingPlugin({

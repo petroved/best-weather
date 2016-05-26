@@ -7,16 +7,23 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Simple Order</a>
+      <a class="navbar-brand" href="#">Best Weather</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li ng-class="{'active': main.$state.includes('index.products')}"><a href ui-sref="index.products">Products</a></li>
+        <li ng-class="{ 'active': vm.showForMale }" ><a href ng-click="vm.sortForMale()">For male</a></li>
+        <li ng-class="{ 'active': !vm.showForMale }"><a href ng-click="vm.sortForFemale()">For female</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <div class="container">
-  <div ui-view></div>
+  <ul>
+    <li ng-repeat="city in vm.cities track by $index">
+      <span ng-bind="city.name"></span>
+      <span ng-bind="city.main.temp"></span>
+      <span ng-bind="city.main.humidity"></span>
+    </li>
+  </ul>
 </div>

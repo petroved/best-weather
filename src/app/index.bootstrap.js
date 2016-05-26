@@ -6,7 +6,7 @@ import '!!file-loader?name=[name].[ext]!../favicon.ico';
 import './index.module';
 
 angular.element(document).ready(() => {
-  angular.bootstrap(document, ['simpleOrder'], {
+  angular.bootstrap(document, ['bestWeather'], {
     strictDi: true,
   });
 });
