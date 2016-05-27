@@ -1,0 +1,46 @@
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Best Weather</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li ng-class="{ 'active': vm.showForMale }" ><a href ng-click="vm.sortForMale()">For male</a></li>
+        <li ng-class="{ 'active': !vm.showForMale }"><a href ng-click="vm.sortForFemale()">For female</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="loading-container" ng-show="vm.loadingTracker.active()">
+    <div class="loading-spinner">Loading...</div>
+    <div class="loading-backdrop"></div>
+  </div>
+  <div ng-show="vm.errorMessage">
+    <div class="alert alert-danger" role="alert">{{vm.errorMessage}}</div>
+  </div>
+  <ul class="weather-list">
+    <li ng-repeat="city in vm.cities track by $index" ng-class="{ 'best': $index === 0 }">
+      <div class="row">
+        <div class="city" ng-bind="city.name"></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-md-3 temp"><span ng-bind="city.main.temp"></span>°C</div>
+        <div class="col-xs-6 col-md-3 weather-prop">
+          <div>Humidity: <span ng-bind="city.main.humidity"></span> %</div>
+          <div>Pressure: <span ng-bind="city.main.pressure"></span> hpa</div>
+          <div>Wind: <span ng-bind="city.wind.speed"></span> m/s</div>
+        </div>
+      </div>
+      <span ></span>
+
+    </li>
+  </ul>
+</div>

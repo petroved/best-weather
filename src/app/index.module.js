@@ -1,20 +1,14 @@
-import { routerConfig } from './index.routes';
-
-import { weatherService } from './main/services/weather.service';
-
-import { WeatherController } from './main/layout/weather.controller.js';
-
+/* eslint-disable no-unused-vars */
+import { weather } from './modules/weather/weather.module';
+/* eslint-enable no-unused-vars */
 import './index.scss';
 
 const app = angular.module(
   'bestWeather', [
     'ngRoute',
-    'ajoslin.promise-tracker',
-  ]);
 
-app
-  .config(routerConfig)
-  .service('weatherService', weatherService)
-  .controller('WeatherController', WeatherController);
+    // modules
+    'weather',
+  ]);
 
 export default app;

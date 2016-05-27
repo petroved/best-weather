@@ -3,7 +3,7 @@ export function routerConfig($routeProvider) {
 
   $routeProvider
     .when('/weather', {
-      templateUrl: 'src/app/main/layout/weather.html',
+      templateUrl: 'src/app/modules/weather/weather.html',
       controller: 'WeatherController as vm',
     })
     .otherwise('/weather');

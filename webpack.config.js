@@ -36,13 +36,13 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [{
-      test: /\.js$/,
-      include: [
-        path.resolve(path.join(paths.src, 'app')),
-      ],
-      loader: 'eslint-loader',
-    }],
+    // preLoaders: [{
+    //   test: /\.js$/,
+    //   include: [
+    //     path.resolve(path.join(paths.src, 'app')),
+    //   ],
+    //   loader: 'eslint-loader',
+    // }],
     loaders: [
       {
         test: /\.html$/,

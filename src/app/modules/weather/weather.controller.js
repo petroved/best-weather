@@ -1,5 +1,5 @@
 export class WeatherController {
-  constructor(weatherService, $timeout) {
+  constructor(weatherService, $timeout, promiseTracker) {
     'ngInject';
 
     this.cities = null;
@@ -7,6 +7,9 @@ export class WeatherController {
     this.tempForFemale = 22;
     this.humidity = 50;
     this.showForMale = true;
+    this.errorMessage = false;
+
+    this.loadingTracker = promiseTracker();
 
     this.$timeout = $timeout;
     this.weatherService = weatherService;
@@ -15,12 +18,20 @@ export class WeatherController {
   }
 
   activate(temp, humidity) {
-    this.weatherService.getSorted(temp, humidity)
+    this.errorMessage = false;
+    this.cities = null;
+
+    const promise = this.weatherService.getSorted(temp, humidity)
       .then((response) => {
         this.$timeout(() => {
           this.cities = response;
         });
+      }, () => {
+        this.cities = null;
+        this.errorMessage = 'Error with get cities. Please try again later.';
       });
+
+    this.loadingTracker.addPromise(promise);
   }
 
   sortForMale() {
